@@ -3,11 +3,16 @@ Making Linux based OS with custom Kernel Modules Can be sued for Embedded Applic
 
 
 Yocto steps:
+
 cd build
 
+
 Build images:
+
 MACHINE=intel-x86-32 bitbake -c menuconfig virtual/kernel  #for building kernal with menuconfig check
+
 MACHINE=intel-x86-32 bitbake -k rootfs-image
+
 images in            ./tmp/deploy/images
 
 
@@ -15,17 +20,27 @@ code built from repos, binaries, source files result will be in  ./tmp/work/
 
 
 Build SDK :
+
 SDKMACHINE=x86_64 MACHINE=intel-x86-32 bitbake -k universal-dev -c populate_sdk
-SDK                ./tmp/deploy/sdk
+
+SDK folder               ./tmp/deploy/sdk
+
 
 OpenWrt Buildroot:
+
 your target device, like /bin, /tmp/, /usr, etc.
+
 images at the “topdir/output/build/images”
+
 conventional method like “tftp” to flash images into the device.
 
 
 make list-defconfigs  # Displays list of boards within defconfig
+
 ./Run.sh setup
+
 ./Run.sh help
+
 source ~/.bash_profile
+
 make menuconfig # menuconfig check
